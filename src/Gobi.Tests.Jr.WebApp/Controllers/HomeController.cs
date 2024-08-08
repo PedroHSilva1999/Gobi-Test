@@ -58,7 +58,6 @@ namespace Gobi.Tests.Jr.WebApp.Controllers
 		}
 
 		[HttpPost]
-		[HttpPost]
 		public IActionResult Delete(int id)
 		{
 			var item = _todoItemService.GetAll().FirstOrDefault(x => x.Id == id);
