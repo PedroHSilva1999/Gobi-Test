@@ -1,0 +1,27 @@
+﻿@model Gobi.Test.Jr.Domain.TodoItem
+@{
+    ViewData["Title"] = "Edição";
+    
+}
+<h1>Edição das Tarefas</h1>
+<div class="container ">
+    <form method="post" asp-action="Edit">
+        <input style="display:none" asp-for="Id"/> 
+        <div class="form-group">
+            <label>Tarefa</label>
+            <input asp-for="Description" type="text" class="form-control" id="description"  placeholder="Descreva a Tarefa">
+        </div>
+       
+        <div class="form-check form-switch">
+            <input asp-for="Completed" type="checkbox" class="form-check-input" id="Completed">
+            <label class="form-check-label">Concluido?</label>
+        </div>
+
+        <div class=" d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary">Editar Tarefa</button>
+        </div>
+        <a asp-action="Index" class=" btn btn-secondary">
+            Voltar
+        </a>
+    </form>
+</div>

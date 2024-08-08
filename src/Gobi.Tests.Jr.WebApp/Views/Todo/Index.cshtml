@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Gobi.Test.Jr.Domain.TodoItem>
+@{
+	ViewData["Title"] = "Home Page";
+	var sortedModel = Model.OrderBy(item => item.Completed).ToList();
+}
+
+<div class="container">
+
+	<div class="mt-5 mb-5">
+		<a asp-action="Add" class="btn btn-primary">
+			Add ToDo
+		</a>
+	</div>
+
+	<table class="table table-bordered">
+		<thead>
+			<tr class="text-center">
+				<th>Tarefa</th>
+				<th>Opções</th>
+				<th>Finalizado</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in sortedModel)
+			{
+				<tr class="text-center">
+					<td>@item.Description</td>
+					<td>
+						<div class="d-flex justify-content-center">
+							<a class="btn btn-sm btn-primary" asp-route-id="@item.Id" asp-action="Edit" title="Editar">Editar</a>
+							<form asp-action="Delete" asp-route-id="@item.Id" method="post" style="display:inline;">
+								<button type="submit" class="btn btn-sm btn-danger" title="Excluir" onclick="return confirmDelete();">Excluir</button>
+							</form>
+						</div>
+					</td>
+					<td>
+						@if (item.Completed)
+						{
+							<p>Sim</p>
+						}
+						else
+						{
+							<p>Não</p>
+						}
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+
+</div>

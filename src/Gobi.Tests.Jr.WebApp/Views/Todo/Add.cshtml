@@ -1,0 +1,27 @@
+﻿@model Gobi.Test.Jr.Domain.TodoItem
+
+@{
+    ViewData["Title"] = "Adicionar Lista de Tarefas";
+
+}
+<div class="container">
+
+    <h1>Adicione as Tarefas</h1>
+
+<form method="post" asp-action="Add"> 
+    <div class="form-group">
+        <label>Tarefa</label>
+        <input asp-for="Description" type="text" class="form-control" id="description" placeholder="Descreva a Tarefa">
+    </div>
+
+    <div class="form-check form-switch">
+        <input asp-for="Completed" type="checkbox" class="form-check-input" id="Completed">
+        <label class="form-check-label">Concluido?</label>
+    </div>
+    
+    <div class=" d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary">Salvar Tarefa</button>
+    </div>
+   
+</form>
+</div>
